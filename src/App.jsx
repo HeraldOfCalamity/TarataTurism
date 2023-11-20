@@ -7,19 +7,22 @@ import Search from './components/Search';
 import Selections from './components/Selections';
 import Carousel from './components/Carousel';
 import Footer from './components/Footer';
+import Login from './components/Login';
 
 const App = () => {
   return (
     <>
-      <Navbar />
-      <Hero />
-      <Destinations />
+      <Login />
+      {/* <Navbar /> */}
+      {/* <Hero /> */}
+      {/* <Destinations /> */}
       {/* <Search /> */}
-      <Selections />
+      {/* <Selections /> */}
       {/* <Carousel /> */}
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
+
 
 export default App;

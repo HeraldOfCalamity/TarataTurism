@@ -2,12 +2,12 @@ import React from 'react';
 
 import Selection from './Selection';
 
-import casa_melgarejo from '../assets/casa_melgarejo.jpeg'
-import casa_municipal from '../assets/casa_municipal_cultura.jpeg'
-import convento_sanFransisco from '../assets/convento_san_francisco_asis.jpeg'
-import iglesia_sanSeverino from '../assets/iglesia_san_severino.jpeg'
-import puente_melgarejo from '../assets/puente_melgarejo.jpeg'
-import plaza_principal from '../assets/plaza_principal.jpeg'
+import casa_melgarejo from '/casa_melgarejo.jpeg'
+import casa_municipal from '/casa_municipal_cultura.jpeg'
+import convento_sanFransisco from '/convento_san_francisco_asis.jpeg'
+import iglesia_sanSeverino from '/iglesia_san_severino.jpeg'
+import puente_melgarejo from '/puente_melgarejo.jpeg'
+import plaza_principal from '/plaza_principal.jpeg'
 
 //consulta a la base de datos de 6 lugares turisticos
 // map xd

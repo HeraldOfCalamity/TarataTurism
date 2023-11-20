@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import casa_melgarejo from '../assets/casa_melgarejo.jpeg'
-import casa_municipal from '../assets/casa_municipal_cultura.jpeg'
-import convento_sanFransisco from '../assets/convento_san_francisco_asis.jpeg'
-import iglesia_sanSeverino from '../assets/iglesia_san_severino.jpeg'
-import puente_melgarejo from '../assets/puente_melgarejo.jpeg'
-import plaza_principal from '../assets/plaza_principal.jpeg'
+
 
 
   
@@ -16,7 +11,7 @@ const Destinations = () => {
     const fetchSpots = async () => {
       try {
         const response = await axios.get('http://localhost:8000/touristspot/5');
-        console.log(response)
+        console.log(response.data)
         setSpots(response.data);
       } catch (error) {
         console.error('Error fetching touristspots:', error);
@@ -31,7 +26,29 @@ const Destinations = () => {
       <h2 className='mb-4'>Great Places</h2>
       <p className='mb-8 font-bold'>On Tarata, Cochabamba</p>
       <div className='grid grid-cols-2 md:grid-cols-5 gap-4'>
-      <div className='col-span-2 md:col-span-3 md:row-span-2'>
+        {
+          spots.map((spot, index) => 
+            
+            index == 0 ?
+            <div key={spot.id} className='col-span-2 md:col-span-3 md:row-span-2'>
+              <img
+                
+                src={spot.picture}
+                alt={spot.name}
+                className='w-full h-full object-cover'
+              />
+            </div> 
+            :
+            <div key={spot.id}>
+              <img
+                src={spot.picture}
+                alt={spot.name}
+                className='w-full h-full object-cover'
+              />
+            </div>
+          )
+        }
+      {/* <div className='col-span-2 md:col-span-3 md:row-span-2'>
           <img
             src={casa_melgarejo}
             alt='casa_melgarejo'
@@ -68,7 +85,7 @@ const Destinations = () => {
             alt='iglesia san severino'
             className='w-full h-full object-cover'
           />
-        </div>
+        </div> */}
       </div>
     </section>
   );
