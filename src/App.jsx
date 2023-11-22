@@ -1,25 +1,22 @@
-import React from 'react';
-
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Destinations from './components/Destinations';
-import Search from './components/Search';
-import Selections from './components/Selections';
-import Carousel from './components/Carousel';
-import Footer from './components/Footer';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './components/Home';
 import Login from './components/Login';
 
 const App = () => {
+  const [user, setUser] = useState({ name: '', lastname: '', ci: 0, email: '', country: '' });
+  useEffect(() => {
+    console.log('effect', user);
+  }, [user]);
   return (
     <>
-      <Login />
-      {/* <Navbar /> */}
-      {/* <Hero /> */}
-      {/* <Destinations /> */}
-      {/* <Search /> */}
-      {/* <Selections /> */}
-      {/* <Carousel /> */}
-      {/* <Footer /> */}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" exact element={<Login setCurrentUser={setUser} />} />
+          <Route path="/home" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
+
     </>
   );
 };

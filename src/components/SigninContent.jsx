@@ -1,20 +1,43 @@
 import React from 'react'
 import { useState } from 'react'
 import { user } from '../user'
+import axios from 'axios'
 
-export default function SigninContent() {
+export default function SigninContent({setCurrentUser}) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
+    const checkUser = async () => {
+        const postUser = {
+            'password':password,
+            'email':email
+        };
+        try {
+            const response = await axios.post(
+                'http://localhost:8000/login', 
+                postUser
+                );
+            if (response.data.message == 1) {
+                alert(response.data.data);
+                return;
+            }
+            
+            setCurrentUser(response.data.data);
+
+        } catch (error) {
+            console.error('Error signing in:', error);
+        }
+    };
+
     const handleSignin = (e) => {
-        e.preventDefault();
-        console.log(user);
+        // e.preventDefault();
+        checkUser();
     }
 
 
 
     return (
-        <form action='' onSubmit={e => handleSignin(e)}>
+        <form action='/home' onSubmit={e => handleSignin(e)}>
             <h2 className='text-4xl dark:text-white font-bold text-center'>Sign In</h2>
             {/* email */}
             <div className='flex flex-col text-gray-400 py-2'>
