@@ -24,22 +24,20 @@ export default function SigninContent() {
                 'http://localhost:8000/login', 
                 postUser
                 );
-            if (response.data.message == 1) {
-                alert(response.data.data);
-                return;
-            }
+        
             const currentUser = response.data.data;
             // console.log(currentUser);
             setUserCookie(currentUser);
             // console.log(document.cookie);
-
+            window.location.href = '/';
         } catch (error) {
             console.error('Error signing in:', error);
+            alert('User Not Found!');
         }
     };
 
     const handleSignin = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         checkUser();
     }
 

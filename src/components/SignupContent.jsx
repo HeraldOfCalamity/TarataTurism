@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import axios from 'axios';
 
 export default function SignupContent({ toggler }) {
     const [email, setEmail] = useState('');
@@ -12,13 +13,13 @@ export default function SignupContent({ toggler }) {
     const [message, setMessage] = useState('');
     const [messageClass, setMessageClass] = useState('text-red-600 text-center');
 
-    const handleSignup = (e) => {
+    const handleSignup = async(e) => {
         e.preventDefault();
         if ((password.trim() === confirmedPassword.trim())) {
             setMessageClass('text-green-600 text-center');
             setMessage('Signing up successfully completed!');
 
-            const user = {
+            const registerUser = {
                 'name':name,
                 'ci':ci,
                 'password':password,
@@ -27,8 +28,23 @@ export default function SignupContent({ toggler }) {
                 'origin_country_name':country
             }
 
-            const request = JSON.stringify(user);
-            console.log(request);
+            try {
+                const response = await axios.post(
+                    'http://localhost:8000/users', 
+                    registerUser
+                    );
+                if (response.data.message == 1) {
+                    alert(response.data.data);
+                    return;
+                }
+                const currentUser = response.data.data;
+                console.log(currentUser);
+                // setUserCookie(currentUser);
+                // console.log(document.cookie);
+                window.location.href = '/';
+            } catch (error) {
+                console.error('Error signing in:', error);
+            }
             return
         }
 
@@ -39,7 +55,7 @@ export default function SignupContent({ toggler }) {
     }
 
     return (
-        <form action='' onSubmit={e => handleSignup(e)}>
+        <form action='/' onSubmit={e => handleSignup(e)}>
             <h2 className='text-4xl dark:text-white font-bold text-center'>Sign Up</h2>
             {/* email */}
             <div className='flex flex-col text-gray-400 py-2'>
