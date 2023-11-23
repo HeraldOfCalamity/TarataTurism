@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const Navbar = () => {
-  const [navIsShown, setnavIsShown] = useState(false);
+  const [navIsShown, setnavIsShown] = useState(true);
   const toggleNavIsShown = () => {
     setnavIsShown((navIsShown) => !navIsShown);
   };
@@ -12,11 +12,11 @@ const Navbar = () => {
         <li>
           <a href='/'>Home</a>
         </li>
-        {/* <li>
-          <a href='/plans'>Planes</a>
-        </li>
         <li>
-          <a href='/login'>Iniciar Sesion</a>
+          <a href='/profile'>Profile</a>
+        </li>
+        {/* <li>
+          <a href='/login'>Login</a>
         </li> */}
         {/* <li>
           <a href=''>Views</a>

@@ -1,15 +1,22 @@
 import React from 'react'
 import { useState } from 'react'
-import { user } from '../user'
 import axios from 'axios'
 
-export default function SigninContent({setCurrentUser}) {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+export default function SigninContent() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const setUserCookie = (user) => {
+        document.cookie = 'name=' + encodeURIComponent(user.name)+';' ;
+        document.cookie = 'lastname=' + encodeURIComponent(user.lastname)+';' ;
+        document.cookie = 'ci=' + encodeURIComponent(user.ci)+';' ;
+        document.cookie = 'country=' + encodeURIComponent(user.country)+';' ;
+        document.cookie = 'email=' + encodeURIComponent(user.email)+';';
+    }
 
     const checkUser = async () => {
         const postUser = {
-            'password':password,
+            'password':password.trim(),
             'email':email
         };
         try {
@@ -21,8 +28,10 @@ export default function SigninContent({setCurrentUser}) {
                 alert(response.data.data);
                 return;
             }
-            
-            setCurrentUser(response.data.data);
+            const currentUser = response.data.data;
+            // console.log(currentUser);
+            setUserCookie(currentUser);
+            // console.log(document.cookie);
 
         } catch (error) {
             console.error('Error signing in:', error);
@@ -37,7 +46,7 @@ export default function SigninContent({setCurrentUser}) {
 
 
     return (
-        <form action='/home' onSubmit={e => handleSignin(e)}>
+        <form action='/' onSubmit={e => handleSignin(e)}>
             <h2 className='text-4xl dark:text-white font-bold text-center'>Sign In</h2>
             {/* email */}
             <div className='flex flex-col text-gray-400 py-2'>

@@ -5,15 +5,18 @@ import Search from "./Search";
 import Selections from "./Selections";
 import Carousel from "./Carousel";
 import Footer from "./Footer";
+import { useEffect, useState } from "react";
 
 
 export default function Home() {
+
+
     return(
     <>
         <Navbar />
         <Hero />
         <Destinations />
-        <Search />
+        {/* <Search /> */}
         <Selections />
         <Carousel />
         <Footer />
