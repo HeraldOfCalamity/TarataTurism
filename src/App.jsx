@@ -4,6 +4,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Profile from './components/Profile';
 import { readCookieByKey } from './user'
+import Plan from './components/Plan';
 
 const App = () => {
   const [user, setUser] = useState({ name: '', lastname: '', ci: 0, email: '', country: '' });
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/" exact element={readCookieByKey('name') ? <Home user={user}/> : <Navigate to='/login'/>} />
           <Route path="/login" element={<Login setCurrentUser={setUser} user={user} />} />
           <Route path='/profile' element={<Profile />} />
+          <Route path='/plans' element={<Plan />} />
         </Routes>
       </BrowserRouter>
 

@@ -15,9 +15,9 @@ const Navbar = () => {
         <li>
           <a href='/profile'>Profile</a>
         </li>
-        {/* <li>
-          <a href='/login'>Login</a>
-        </li> */}
+        <li>
+          <a href='/plans'>Plans</a>
+        </li>
         {/* <li>
           <a href=''>Views</a>
         </li>
@@ -95,23 +95,23 @@ const Navbar = () => {
           </div>
           <ul className=' mb-4'>
             <li className='border-b-2 border-b-gray-600'>
-              <a href=''>Home</a>
+              <a href='/'>Home</a>
             </li>
             <li className='border-b-2 border-b-gray-600'>
-              <a href=''>Destinations</a>
+              <a href='/profile'>Profile</a>
             </li>
             <li className='border-b-2 border-b-gray-600'>
-              <a href=''>Travel</a>
+              <a href='/plans'>Plans</a>
             </li>
-            <li className='border-b-2 border-b-gray-600'>
+            {/* <li className='border-b-2 border-b-gray-600'>
               <a href=''>Views</a>
             </li>
             <li className='border-b-2 border-b-gray-600'>
               <a href=''>Book</a>
-            </li>
+            </li> */}
           </ul>
-          <button className='w-full mb-4 btn'>Search</button>
-          <button className='w-full mb-4 btn'>Account</button>
+          {/* <button className='w-full mb-4 btn'>Search</button>
+          <button className='w-full mb-4 btn'>Account</button> */}
         </div>
       )}
     </nav>

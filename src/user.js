@@ -13,6 +13,7 @@ export const readCookieByKey = (key) => {
 }
 
 export const deleteUserCookie = () => {
+    document.cookie = 'id=; max-age=0';
     document.cookie = 'name=; max-age=0;';
     document.cookie = 'lastname=; max-age=0;';
     document.cookie = 'ci=; max-age=0;';

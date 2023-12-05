@@ -9,8 +9,8 @@ export default function Profile() {
 
 
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmedPassword, setConfirmedPassword] = useState('');
+    // const [password, setPassword] = useState('');
+    // const [confirmedPassword, setConfirmedPassword] = useState('');
     const [ci, setCi] = useState('');
     const [name, setName] = useState('');
     const [lastname, setLastname] = useState('');
@@ -29,7 +29,7 @@ export default function Profile() {
                     alert(response.data.data);
                     return;
                 }
-                console.log(response.data.data);
+                console.log(response.data.data);                
                 setPlans(response.data.data);
                 // window.location.href = '/';
             } catch (error) {
@@ -81,7 +81,9 @@ export default function Profile() {
         deleteUserCookie();
         window.location.href = '/';
     }
+    const validateFields = () => {
 
+    }
     const handleDeleteAccount = async () => {
         try {
             const response = await axios.delete(
@@ -139,7 +141,7 @@ export default function Profile() {
                             <label htmlFor="floating_country" className="peer-focus:font-medium absolute text-sm text-green-900 dark:text-green-900 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-emerald-700 peer-focus:dark:text-emerald-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                                 Country {readCookieByKey('country')}</label>
                         </div>
-                        <div className="relative z-0 w-full mb-5 group">
+                        {/* <div className="relative z-0 w-full mb-5 group">
                             <input onChange={e => setPassword(e.target.value)} type="password" name="floating_password" id="floating_password" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
                             <label htmlFor="floating_password" className="peer-focus:font-medium absolute text-sm text-green-900 dark:text-green-900 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-emerald-700 peer-focus:dark:text-emerald-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                                 Password</label>
@@ -148,7 +150,7 @@ export default function Profile() {
                             <input onChange={e => setConfirmedPassword(e.target.value)} type="password" name="floating_confirmed_password" id="floating_confirmed_password" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
                             <label htmlFor="floating_confirmed_password" className="peer-focus:font-medium absolute text-sm text-green-900 dark:text-green-900 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-emerald-700 peer-focus:dark:text-emerald-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                                 Confirm Password</label>
-                        </div>
+                        </div> */}
                         <div className="mt-5 mx-10">
                             <p className={messageClass}>{message}</p>
                             <div className="flex justify-between">

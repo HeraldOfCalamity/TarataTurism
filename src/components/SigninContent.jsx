@@ -7,6 +7,8 @@ export default function SigninContent() {
     const [password, setPassword] = useState('');
 
     const setUserCookie = (user) => {
+        
+        document.cookie = 'id=' + encodeURIComponent(user.id)+';' ;
         document.cookie = 'name=' + encodeURIComponent(user.name)+';' ;
         document.cookie = 'lastname=' + encodeURIComponent(user.lastname)+';' ;
         document.cookie = 'ci=' + encodeURIComponent(user.ci)+';' ;
