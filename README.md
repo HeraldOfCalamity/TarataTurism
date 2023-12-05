@@ -1,3 +1,7 @@
+# Bridge
+Web app for Tarata Cochabamba, its purpose is to improve turism, and planning for every user. Beaches template used in this project
+
+
 # Beaches.
 
 A ReactJS & Tailwind CSS Travel Website which I built to enhance using TailwindCSS with ReactJS.
